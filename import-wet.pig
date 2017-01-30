@@ -10,9 +10,8 @@ all_uris = foreach data generate uid;
 
 less_data = filter data by (id != 'NOT VALID');
 
+all_grouped = group data all;
+counts = foreach all_grouped generate COUNT(data);
+dump counts;
 
-
-some = limit less_data 10;
-test = foreach some generate uid;
-dump test;
 
